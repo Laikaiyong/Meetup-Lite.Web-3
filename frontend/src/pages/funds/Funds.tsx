@@ -29,6 +29,7 @@ import {
     closeCircleSharp,
     walletOutline,
     walletSharp,
+    peopleOutline
 } from "ionicons/icons";
 
 import { GroupProvider } from "../../provider/GroupProvider";
