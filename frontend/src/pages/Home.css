@@ -1,3 +1,5 @@
+/* @import url('https: //fonts.googleapis.com/css?family=Bungee Shade'); */
+
 .event-row-scroll {
     flex-wrap: nowrap;
     flex-direction: row;
@@ -12,7 +14,7 @@
     margin-bottom: 20px;
     font-size: 60px;
     font-weight: bolder;
-    /* font-family: monospace; */
+    /* font-family: 'Bungee Shade'; */
 }
 
 .home-description-text {
@@ -26,13 +28,9 @@
     margin-left: 20px;
 }
 
-.home-event-title{
-    font-size: large;
-    min-height: max-content;
-}
 
 .home-content {
-
+    
 }
 
 /* Stats */
@@ -45,14 +43,26 @@
     align-items: center;
 }
 
-.stats-num{
+.stats-num {
     font-size: xx-large;
     font-weight: 900;
     color: #ffe138;
 }
 
+/* .stats-col {
+    border-right-style: solid;
+    border-right-color: #fff8d3;
+    border-right-width: 1px;
+    border-left: 4px;
+    align-items: center;
+} */
 
 /* Event */
+.home-event-title{
+    font-size: large;
+    min-height: max-content;
+}
+
 .home-event-img{
     height: 200px;
     width: 100%;
@@ -80,10 +90,6 @@
 
 .event-card-item {
     /* margin: 12px; */
-}
-
-.event-page-title {
-    margin-top: 20px;
 }
 
 .event-description-text {
