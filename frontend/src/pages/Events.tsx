@@ -29,7 +29,7 @@ const Events: React.FC = () => {
 
         <IonList>
         {eventList.map((event, index) => {
-            return routerLink={"/groups/" + event.id} (
+            return (
                 <IonItem key={event.id}>
                 <IonThumbnail slot="start">
                   <img alt={"Image " + index} src={event.imageUrl}/>
@@ -60,7 +60,7 @@ const Events: React.FC = () => {
                     </IonRow>
                   </IonGrid>
                 </IonLabel>
-                <IonButton fill="outline">View</IonButton>
+                <IonButton routerLink={"/groups/" + event.id} fill="outline">View</IonButton>
               </IonItem>
             );
           })}
