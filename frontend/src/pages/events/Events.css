@@ -1,0 +1,13 @@
+.event-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-page-title {
+  margin-top: 20px;
+}
+
+.event-description-text {
+  margin-left: 20px;
+}

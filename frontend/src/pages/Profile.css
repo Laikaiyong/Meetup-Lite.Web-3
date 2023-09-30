@@ -1,0 +1,15 @@
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.profile-avatar {
+  margin: 20px auto;
+}

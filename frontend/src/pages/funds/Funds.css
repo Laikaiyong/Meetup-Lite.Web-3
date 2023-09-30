@@ -1,0 +1,14 @@
+.funds-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.funds-page-title {
+  margin-top: 20px;
+}
+
+.funds-description-text {
+  margin-left: 20px;
+}

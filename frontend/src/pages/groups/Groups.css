@@ -1,0 +1,14 @@
+.group-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.group-page-title {
+  margin-top: 20px;
+}
+
+.group-description-text {
+  margin-left: 20px;
+}
