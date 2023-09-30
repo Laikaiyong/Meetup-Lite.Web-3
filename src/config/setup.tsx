@@ -10,8 +10,6 @@ import {
 } from "@solana/web3.js";
 import React, { useEffect, useState } from "react";
 
-export const task = "Lesson 1 - Keypair.";
-
 const Exercise1GenerateKeypairs: React.FC<{
   keypair: Keypair | null;
   setKeypair: Dispatch<SetStateAction<Keypair | null>>;
