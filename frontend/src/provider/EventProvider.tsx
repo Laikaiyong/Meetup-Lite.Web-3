@@ -20,6 +20,44 @@ export class EventProvider {
         iosIcon: walletOutline,
         mdIcon: walletSharp,
       },
+      participants: [
+        {
+            id: "user1",
+            name: "Alice",
+            subtitle: "Web3 Enthusiast",
+            bio: "Interested in NFTs.",
+            interests: "Web3, NFT, Crypto, Art",
+            joinedGroups: [1, 2],
+            eventHistory: [1, 2],
+          },
+          {
+            id: "user2",
+            name: "Bob",
+            subtitle: "Crypto Trader",
+            bio: "Day trader in the crypto market.",
+            interests: "Trading, Crypto, Finance",
+            joinedGroups: [1, 3],
+            eventHistory: [1],
+          },
+          {
+            id: "user3",
+            name: "Charlie",
+            subtitle: "Blockchain Developer",
+            bio: "Building decentralized apps.",
+            interests: "Web3, Solidity, Smart Contracts",
+            joinedGroups: [2, 3],
+            eventHistory: [2],
+          },
+          {
+            id: "user4",
+            name: "Diana",
+            subtitle: "Data Scientist",
+            bio: "Love crunching numbers.",
+            interests: "Data Science, Python, Jupyter",
+            joinedGroups: [4],
+            eventHistory: [2],
+          }
+      ]
     },
     {
       id: 2,
@@ -37,6 +75,35 @@ export class EventProvider {
         iosIcon: walletOutline,
         mdIcon: walletSharp,
       },
+      participants: [
+        {
+            id: "user1",
+            name: "Alice",
+            subtitle: "Web3 Enthusiast",
+            bio: "Interested in NFTs.",
+            interests: "Web3, NFT, Crypto, Art",
+            joinedGroups: [1, 2],
+            eventHistory: [1, 2],
+          },
+          {
+            id: "user2",
+            name: "Bob",
+            subtitle: "Crypto Trader",
+            bio: "Day trader in the crypto market.",
+            interests: "Trading, Crypto, Finance",
+            joinedGroups: [1, 3],
+            eventHistory: [1],
+          },
+          {
+            id: "user3",
+            name: "Charlie",
+            subtitle: "Blockchain Developer",
+            bio: "Building decentralized apps.",
+            interests: "Web3, Solidity, Smart Contracts",
+            joinedGroups: [2, 3],
+            eventHistory: [2],
+          },
+      ]
     },
     {
       id: 3,
@@ -54,6 +121,26 @@ export class EventProvider {
         iosIcon: walletOutline,
         mdIcon: walletSharp,
       },
+      participants: [
+        {
+            id: "user1",
+            name: "Alice",
+            subtitle: "Web3 Enthusiast",
+            bio: "Interested in NFTs.",
+            interests: "Web3, NFT, Crypto, Art",
+            joinedGroups: [1, 2],
+            eventHistory: [1, 2],
+          },
+          {
+            id: "user2",
+            name: "Bob",
+            subtitle: "Crypto Trader",
+            bio: "Day trader in the crypto market.",
+            interests: "Trading, Crypto, Finance",
+            joinedGroups: [1, 3],
+            eventHistory: [1],
+          },
+      ]
     },
     {
       id: 4,
@@ -71,6 +158,17 @@ export class EventProvider {
         iosIcon: walletOutline,
         mdIcon: walletSharp,
       },
+      participants: [
+        {
+            id: "user1",
+            name: "Alice",
+            subtitle: "Web3 Enthusiast",
+            bio: "Interested in NFTs.",
+            interests: "Web3, NFT, Crypto, Art",
+            joinedGroups: [1, 2],
+            eventHistory: [1, 2],
+          },
+      ]
     },
   ];
 }

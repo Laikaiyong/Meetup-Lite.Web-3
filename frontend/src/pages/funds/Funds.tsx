@@ -22,14 +22,36 @@ import {
     IonButtons,
     IonMenuButton,
 } from "@ionic/react";
-import { peopleOutline, walletOutline } from "ionicons/icons";
-import { Transaction, SystemProgram, PublicKey } from "@solana/web3.js";
+import {
+    checkmarkCircleOutline,
+    checkmarkCircleSharp,
+    closeCircleOutline,
+    closeCircleSharp,
+    walletOutline,
+    walletSharp,
+} from "ionicons/icons";
+
 import { GroupProvider } from "../../provider/GroupProvider";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { Wallet } from "../../components/funds/ConnectWalletContext";
+
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import "./Funds.css";
+import {
+    clusterApiUrl,
+    Transaction,
+    SystemProgram,
+    Keypair,
+    LAMPORTS_PER_SOL,
+    PublicKey,
+} from "@solana/web3.js";
+
+import { actions, utils, programs, NodeWallet, Connection } from "@metaplex/js";
+import { Wallet } from "../../components/funds/ConnectWalletContext";
+import axios from "axios";
+import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
 
 const Funds: React.FC = () => {
+    const transactionState = 0;
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const [solAmount, setSolAmount] = useState<number | null>(null);
@@ -42,6 +64,51 @@ const Funds: React.FC = () => {
     ); // Default to ETH
     const outputToken = "So11111111111111111111111111111111111111112";
     const [inputSide, setInputSide] = useState("SOL"); // Default to SOL
+
+    async function gnosisTransactionValidator(transaction: string) {
+        const apiKey = "3JQMC1836DIPQQV3Q37E7U1UGC7HFG7AAJ";
+        const apiUri =
+            "https://api.gnosisscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=" +
+            transaction +
+            "&apikey=" +
+            apiKey;
+
+        const apiResult = await axios.get(apiUri);
+        return apiResult.data.status as number;
+    }
+
+    const transactionCode =
+        "0x734b306be08378fb972e1a15020cb198fc4511775b84880ab15eef5fd24b2503";
+
+    const onClick = useCallback(async () => {
+        if (!publicKey) throw new WalletNotConnectedError();
+
+        // 890880 lamports as of 2022-09-01
+        const lamports = await connection.getMinimumBalanceForRentExemption(0);
+
+        const transaction = new Transaction().add(
+            SystemProgram.transfer({
+                fromPubkey: publicKey,
+                toPubkey: Keypair.generate().publicKey,
+                lamports,
+            })
+        );
+
+        const {
+            context: { slot: minContextSlot },
+            value: { blockhash, lastValidBlockHeight },
+        } = await connection.getLatestBlockhashAndContext();
+
+        const signature = await sendTransaction(transaction, connection, {
+            minContextSlot,
+        });
+
+        await connection.confirmTransaction({
+            blockhash,
+            lastValidBlockHeight,
+            signature,
+        });
+    }, [publicKey, sendTransaction, connection]);
 
     // Function to fetch quote in real-time
     const fetchQuote = async (
@@ -284,6 +351,33 @@ const Funds: React.FC = () => {
                         message={toastMessage}
                         duration={2000}
                     />
+
+                    <IonList inset={true}>
+                        <IonItem
+                            button
+                            onClick={gnosisTransactionValidator(
+                                transactionCode
+                            )}
+                        >
+                            <IonLabel>{transactionCode}</IonLabel>
+                            <IonLabel>
+                                {!transactionState == 1 ? (
+                                    <IonIcon
+                                        aria-hidden="true"
+                                        ios={checkmarkCircleOutline}
+                                        md={checkmarkCircleSharp}
+                                    />
+                                ) : (
+                                    <IonIcon
+                                        aria-hidden="true"
+                                        ios={closeCircleOutline}
+                                        md={closeCircleSharp}
+                                    />
+                                )}
+                            </IonLabel>
+                            <IonLabel>Click to Revalidate</IonLabel>
+                        </IonItem>
+                    </IonList>
                 </IonContent>
             </IonPage>
         </Wallet>

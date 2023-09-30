@@ -1,3 +1,4 @@
+import { PeopleModel } from "@/provider/PeopleProvider";
 import { GroupModel } from "./Group";
 
 export interface EventDetail {
@@ -13,4 +14,5 @@ export interface EventModel {
     imageUrl: string;
     dateTime: EventDetail;
     allocatedFunds: EventDetail;
+    participants: PeopleModel[];
 }

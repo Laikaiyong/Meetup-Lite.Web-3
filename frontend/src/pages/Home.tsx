@@ -11,16 +11,13 @@ import {
   IonPage,
   IonText,
   IonTitle,
-  IonToolbar,
   IonItem,
-  IonThumbnail,
-  IonLabel,
   IonGrid,
   IonCol,
   IonRow,
   IonIcon,
-  IonList,
   IonButton,
+  IonToolbar
 } from "@ionic/react";
 import React from "react";
 
@@ -56,10 +53,11 @@ const Home: React.FC = () => {
           Meetup Lite
         </IonTitle>
         <IonText className="home-description-text">
-          Bond together for a better Web3 Space <br/><br/><br/>
+          Bond together for a better Web3 Space <br />
+          <br />
+          <br />
         </IonText>
 
-        
         <IonItem>
           <IonGrid>
             <IonText className="home-section-title">Upcoming Events</IonText>
@@ -74,7 +72,9 @@ const Home: React.FC = () => {
                         src={event.imageUrl}
                       />
                       <IonCardHeader>
-                        <IonCardTitle className="home-event-title">{event.title}</IonCardTitle>
+                        <IonCardTitle className="home-event-title">
+                          {event.title}
+                        </IonCardTitle>
                       </IonCardHeader>
                       <IonCardContent className="event-description-text">
                         {event.description}
@@ -126,26 +126,47 @@ const Home: React.FC = () => {
         </IonItem>
 
         <IonItem>
-            <IonGrid>
-          <IonCard className="home-stats">
-                <IonCardHeader>
-                  <IonCardTitle>Meetup Lite Stats</IonCardTitle>
-                  </IonCardHeader>
+          <IonGrid>
+            <IonCard className="home-stats">
+              <IonCardHeader>
+                <IonCardTitle>Meetup Lite Stats</IonCardTitle>
+              </IonCardHeader>
               <IonCardContent>
                 <IonRow>
-              <IonCol>              
-                <IonText className="stats-num">1,847 <br/></IonText>
-                <IonText>Number of Visitors</IonText>
-                </IonCol>
-                <IonCol>
-                  <IonText>Funds Collected</IonText>
-                </IonCol>   
+                  <IonCol className="stats-col">
+                    <IonText className="stats-num">
+                      1,847 <br />
+                    </IonText>
+                    <IonText>
+                      Visitor Count <br />
+                    </IonText>
+                    <IonText>Since 30 September 2023</IonText>
+                  </IonCol>
+                  <IonCol>
+                    <IonText className="stats-num">
+                      $ 4,593
+                      <br />
+                    </IonText>
+                    <IonText>
+                      Total Funds Collected <br />
+                    </IonText>
+                    <IonText>Since 30 September 2023</IonText>
+                  </IonCol>
+                  <IonCol>
+                    <IonText className="stats-num">
+                      2,376
+                      <br />
+                    </IonText>
+                    <IonText>
+                      Page View Count <br />
+                    </IonText>
+                    <IonText>Since 30 September 2023</IonText>
+                  </IonCol>
                 </IonRow>
               </IonCardContent>
-          </IonCard>
+            </IonCard>
           </IonGrid>
         </IonItem>
-
       </IonContent>
     </IonPage>
   );
